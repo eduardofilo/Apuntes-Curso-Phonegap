@@ -61,3 +61,79 @@ phonegap build android
 phonegap run android
 ```
 
+Inspeccionar dispositivos externos en Chrome
+--------------------------------------------
+about:inspect
+
+WebServices
+-----------
+Servidor mock ([mockable](http://www.mockable.io/)): demo0034470.mockable.io
+
+jQuery
+------
+Hay una convención por la cual cuando invocamos jQuery ($) para localizar un elemento del DOM, la variable donde se carga se pone con el prefijo $. Por ejemplo:
+```javascript
+var $paragrafos = $('p');
+```
+
+**Ejemplo1**
+```javascript
+var $paragraphs = $('p');
+for (var i=0; i < $paragraphs.length ; i++) {
+    console.log(i, $paragraphs[i]);
+}
+$paragraphs.css('color', 'red');
+$paragraphs.css('background-color', 'green');
+
+$paragraphs.css({'color': 'blue',
+                 'background-color': 'yellow'});
+
+console.log($paragraphs.css('color'));
+$firstp = $('p:first');
+//$firstp = $('p').first();
+//$firstp = $('p').eq(0);
+$firstp.addClass('importante');
+```
+
+**Ejemplo2**
+```javascript
+var $firstp = $('p:first');
+var texto = $firstp.text();
+$firstp.text(texto.toUpperCase());
+//var $strong = $('<strong>');
+//$strong.text('contenido');
+//$firstp.prepend($strong);
+
+$('<strong>')
+    .text('contenido')
+    .prependTo($firstp);
+```
+
+**Ejemplo3**
+```javascript
+var colores = ['Rojo', 'Verde', 'Azul'];
+var $ol = $('ol');
+$ol.empty();
+for (var i=0; i<colores.length; i++) {
+    $ol.append($('<li>').text(colores[i]));
+    //$('<li>').text(colores[i]).appendTo($ol);
+}
+```
+
+**Ejemplo4**
+```javascript
+$('p').on('click', function(evt) {
+    evt.preventDefault();
+    $(this).css('background-color', 'green');
+});
+```
+
+**Ejemplo5**
+```javascript
+$('p').on('click', function(evt) {
+    $(this).fadeOut(function() {
+        $(this).text($(this).text().toUpperCase());
+        $(this).fadeIn();
+    });
+});
+```
