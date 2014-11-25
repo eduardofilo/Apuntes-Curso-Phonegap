@@ -32,3 +32,17 @@ Enlaces
 * [Jade](http://jade-lang.com/) y [HAML](http://haml.info/): Alternativas a HTML.
 * [JSFiddle](http://jsfiddle.net/): Prototipos HTML/CSS/JS.
 * [Transit](http://ricostacruz.com/jquery.transit/): Plugin jQuery para animaciones.
+
+Instalación entorno
+-------------------
+Módulos necesaros:
+* JDK (instalado en `C:\jdk1.8`)
+  * Poner en el PATH: `C:\jdk1.8\bin`
+* [Ant](http://ant.apache.org/) (instalado en `C:\ant`)
+  * Poner en el PATH: `C:\ant\bin`
+* Android SDK (instalado en `C:\android-sdk`)
+  * Definir variable de entorno `ANDROID_HOME` con: `C:\android-sdk`
+* [Node](http://nodejs.org/) ([en Ubuntu](https://github.com/creationix/nvm))
+* Phonegap: `npm install -g phonegap`
+* [Genymotion](http://www.genymotion.com/): Emulador Android (muy rápido).
+* [Vagrant](https://www.vagrantup.com/) (opcional): Empaquetador de entornos de desarrollo
