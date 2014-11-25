@@ -35,7 +35,7 @@ Enlaces
 
 Instalación entorno
 -------------------
-Módulos necesaros:
+Módulos necesarios:
 * JDK (instalado en `C:\jdk1.8`)
   * Poner en el PATH: `C:\jdk1.8\bin`
 * [Ant](http://ant.apache.org/) (instalado en `C:\ant`)
@@ -46,3 +46,14 @@ Módulos necesaros:
 * Phonegap: `npm install -g phonegap`
 * [Genymotion](http://www.genymotion.com/): Emulador Android (muy rápido).
 * [Vagrant](https://www.vagrantup.com/) (opcional): Empaquetador de entornos de desarrollo
+
+Creación de proyecto Phonegap
+-----------------------------
+```Batchfile
+C:\curso>phonegap create 00HolaMundo --name HolaMundo --id es.eduardofilo.hm
+Creating a new cordova project with name "HolaMundo" and id "es.eduardofilo.hm"
+at location "C:\curso\00HolaMundo"
+
+Using custom www assets from https://github.com/phonegap/phonegap-app-hello-worl
+d/archive/master.tar.gz
+```
