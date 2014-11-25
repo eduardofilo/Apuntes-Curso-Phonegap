@@ -50,10 +50,14 @@ Módulos necesarios:
 Creación de proyecto Phonegap
 -----------------------------
 ```Batchfile
-C:\curso>phonegap create 00HolaMundo --name HolaMundo --id es.eduardofilo.hm
-Creating a new cordova project with name "HolaMundo" and id "es.eduardofilo.hm"
-at location "C:\curso\00HolaMundo"
-
-Using custom www assets from https://github.com/phonegap/phonegap-app-hello-worl
-d/archive/master.tar.gz
+phonegap create 00HolaMundo --name HolaMundo --id es.eduardofilo.hm
 ```
+
+Compilación y ejecución de proyecto Phonegap
+--------------------------------------------
+```Batchfile
+cd 00HolaMundo
+phonegap build android
+phonegap run android
+```
+
