@@ -76,7 +76,7 @@ Hay una convención por la cual cuando invocamos jQuery ($) para localizar un el
 var $paragrafos = $('p');
 ```
 
-**Ejemplo1**
+##### Ejemplo1
 ```javascript
 var $paragraphs = $('p');
 for (var i=0; i < $paragraphs.length ; i++) {
@@ -95,7 +95,7 @@ $firstp = $('p:first');
 $firstp.addClass('importante');
 ```
 
-**Ejemplo2**
+##### Ejemplo2
 ```javascript
 var $firstp = $('p:first');
 var texto = $firstp.text();
@@ -109,7 +109,7 @@ $('<strong>')
     .prependTo($firstp);
 ```
 
-**Ejemplo3**
+##### Ejemplo3
 ```javascript
 var colores = ['Rojo', 'Verde', 'Azul'];
 var $ol = $('ol');
@@ -120,7 +120,7 @@ for (var i=0; i<colores.length; i++) {
 }
 ```
 
-**Ejemplo4**
+##### Ejemplo4
 ```javascript
 $('p').on('click', function(evt) {
     evt.preventDefault();
@@ -128,7 +128,7 @@ $('p').on('click', function(evt) {
 });
 ```
 
-**Ejemplo5**
+##### Ejemplo5
 ```javascript
 $('p').on('click', function(evt) {
     $(this).fadeOut(function() {
@@ -140,7 +140,7 @@ $('p').on('click', function(evt) {
 
 Workflow
 --------
-**Enlaces**
+##### Enlaces
 * [Git](http://git-scm.com/)
 * [SourceTree](http://www.sourcetreeapp.com/): GUI de Git.
 * [La parábola de git](https://www.youtube.com/watch?v=sXudMl5x_5g): Vídeo interesante.
@@ -151,8 +151,7 @@ Workflow
 * [Gulp](http://gulpjs.com/): Gestor de tareas. Equivalente a Grunt. Está de moda ahora.
 * [Bower](http://bower.io/): Gestor de librerías (como npm pero a nivel de librerías JS, tipo leaflet o bootstrap). Depende de git.
 
-**Montaje de entorno**
-
+##### Montaje de entorno
 1. Instalamos git.
 2. Inicializamos el proyecto local:
   * `mkdir 06YesNoGit`
