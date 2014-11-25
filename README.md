@@ -152,6 +152,7 @@ Workflow
 * [Bower](http://bower.io/): Gestor de librerías (como npm pero a nivel de librerías JS, tipo leaflet o bootstrap). Depende de git.
 
 **Montaje de entorno**
+
 1. Instalamos git.
 2. Inicializamos el proyecto local:
   * `mkdir 06YesNoGit`
