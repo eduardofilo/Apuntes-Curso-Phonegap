@@ -137,3 +137,59 @@ $('p').on('click', function(evt) {
     });
 });
 ```
+
+Workflow
+--------
+**Enlaces**
+* [Git](http://git-scm.com/)
+* [SourceTree](http://www.sourcetreeapp.com/): GUI de Git.
+* [La parábola de git](https://www.youtube.com/watch?v=sXudMl5x_5g): Vídeo interesante.
+* [gitflow](http://danielkummer.github.io/git-flow-cheatsheet/): Patrón de uso de git.
+* [Yeoman](http://yeoman.io/): Plantillas/Scaffolding.
+* [Webapp](https://github.com/yeoman/generator-webapp): Plantilla de Yeoman para webapps.
+* [Grunt](http://gruntjs.com/): Gestor de tareas.
+* [Gulp](http://gulpjs.com/): Gestor de tareas. Equivalente a Grunt. Está de moda ahora.
+* [Bower](http://bower.io/): Gestor de librerías (como npm pero a nivel de librerías JS, tipo leaflet o bootstrap). Depende de git.
+
+**Montaje de entorno**
+1. Instalamos git.
+2. Inicializamos el proyecto local:
+  * `mkdir 06YesNoGit`
+  * `cd 06YesNoGit`
+  * `git init`
+3. Creación de repositorio en GitHub.
+4. Creamos un “remote” desde el git local hacia GitHub:
+  * `git remote add origin https://github.com/eduardofilo/06YesNoGit.git`
+5. Sincronizamos:
+  * `git pull origin master`
+6. Modificamos un fichero en local (.gitignore), lo commiteamos en local y sincronizamos con GitHub:
+  * `git add .gitignore`
+  * `git commit -m “Blah, blah”`
+  * `git push origin master`
+7. Inicializamos gitflow en SourceTree (pulsando el botón de la toolbar).
+8. Instalamos Bower (la opción g lo instala en global, es decir accesible desde todos los proyectos):
+  * `npm install -g bower`
+9. Grunt no se suele instalar de forma global porque cambia mucho de versión. Vamos a instalar algo que ejecuta el grunt local del proyecto:
+  * `npm install -g grunt-cli`
+10. Instalamos Yeoman:
+  * `npm install -g yo`
+11. Si falla la descarga de algún paquete, es mejor no reejecutar yeoman. Se habrá generado un fichero `package.json` que contiene los paquetes npm que necesitamos. Ejecutando lo siguiente se bajará lo que falte:
+  * `npm install`
+12. Si `npm install` nos da warnings se puede solucionar inicializando npm (que genera el fichero `package.json`):
+  * `npm init`
+13. Instalamos la plantilla webapp de Yeoman:
+  * `npm install -g generator-webapp`
+14. En este punto tenemos todas las herramientas instaladas.
+15. “Start New Feature” en gitflow@SourceTree. Le damos el nombre “InicializarConYeoman”.
+16. Generamos un proyecto con la plantilla webapp de Yeoman:
+  * `yo`
+  * Instalamos “webapp”
+  * Incluimos las librerías Bootstrap y Modernizr
+  * Hacemos overwrite de `.gitignore`
+17. Lanzamos los tests para probar Grunt:
+  * `grunt test`
+18. Compilamos con Grunt:
+  * `grunt build`
+19. Aparece el directorio `dist` con la versión final (lista para desplegar) de nuestro proyecto.
+20. Arrancamos un servidor web para probar el proyecto:
+  * `grunt serve`
