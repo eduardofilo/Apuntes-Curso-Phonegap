@@ -58,6 +58,7 @@ cd 00HolaMundo
 phonegap build android
 phonegap run android
 ```
+En realidad la tarea `run` hace `build`.
 
 ### Inspeccionar dispositivos externos en Chrome
 about:inspect
