@@ -166,13 +166,13 @@ Día 6: Martes 25/11/2014
   * `cd 06YesNoGit`
   * `git init`
 3. Entramos con nuestra cuenta (o creamos una) en GitHub y creamos un repositorio con el mismo nombre que el local (`06YesNoGit`).
-4. Creamos un “remote” desde el git local hacia GitHub:
+4. Creamos un "remote" desde el git local hacia GitHub:
   * `git remote add origin https://github.com/eduardofilo/06YesNoGit.git`
 5. Sincronizamos:
   * `git pull origin master`
 6. Modificamos un fichero en local (.gitignore), lo commiteamos en local y sincronizamos con GitHub:
   * `git add .gitignore`
-  * `git commit -m “Blah, blah”`
+  * `git commit -m "Primer commit"`
   * `git push origin master`
 7. Inicializamos gitflow en SourceTree (pulsando el botón de la toolbar).
 8. Instalamos Bower (la opción g lo instala en global, es decir accesible desde todos los proyectos):
