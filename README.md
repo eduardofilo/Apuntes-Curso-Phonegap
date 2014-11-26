@@ -65,6 +65,18 @@ about:inspect
 
 ### REST WebServices
 Servidor mock ([mockable](http://www.mockable.io/)): demo0034470.mockable.io
+url: http://demo0034470.mockable.io/votaciones/38/yes
+type: POST
+dataType: json
+Respuesta:
+```json
+{
+	"votosTotal": 6000,
+	"votosPositivos": 3500,
+	"votosNegativos": 2500,
+	"fecha": "2013-04-17T12:32:12"
+}
+```
 
 ### jQuery
 Hay una convención por la cual cuando invocamos jQuery ($) para localizar un elemento del DOM, la variable donde se carga se pone con el prefijo $. Por ejemplo:
