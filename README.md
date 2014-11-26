@@ -1,8 +1,8 @@
 Apuntes Curso Phonegap
 ======================
-
-Enlaces
--------
+Días 1 a 5: 18/11/2014 -> 24/11/2014
+------------------------------------
+### Enlaces
 * [Presentación sobre Phonegap](https://www.pue.es/website/contents/events/2014/phonegap/slides/#/ "PHONEGAP 3.3. Primeros pasos y algo más")
 * [Freelance Corner](http://freelancecorner.org/): Listas de distribución de proyectos para freelancers.
 * [Socrative](http://www.socrative.com/): Gestor de aula (tests de profesor a alumnos).
@@ -34,8 +34,7 @@ Enlaces
 * [JSFiddle](http://jsfiddle.net/): Prototipos HTML/CSS/JS.
 * [Transit](http://ricostacruz.com/jquery.transit/): Plugin jQuery para animaciones.
 
-Instalación entorno
--------------------
+### Instalación entorno
 Módulos necesarios:
 * JDK (instalado en `C:\jdk1.8`)
   * Poner en el PATH: `C:\jdk1.8\bin`
@@ -48,30 +47,25 @@ Módulos necesarios:
 * [Genymotion](http://www.genymotion.com/): Emulador Android (muy rápido).
 * [Vagrant](https://www.vagrantup.com/) (opcional): Empaquetador de entornos de desarrollo
 
-Creación de proyecto Phonegap
------------------------------
+### Creación de proyecto Phonegap
 ```Batchfile
 phonegap create 00HolaMundo --name HolaMundo --id es.eduardofilo.hm
 ```
 
-Compilación y ejecución de proyecto Phonegap
---------------------------------------------
+### Compilación y ejecución de proyecto Phonegap
 ```Batchfile
 cd 00HolaMundo
 phonegap build android
 phonegap run android
 ```
 
-Inspeccionar dispositivos externos en Chrome
---------------------------------------------
+### Inspeccionar dispositivos externos en Chrome
 about:inspect
 
-WebServices
------------
+### REST WebServices
 Servidor mock ([mockable](http://www.mockable.io/)): demo0034470.mockable.io
 
-jQuery
-------
+### jQuery
 Hay una convención por la cual cuando invocamos jQuery ($) para localizar un elemento del DOM, la variable donde se carga se pone con el prefijo $. Por ejemplo:
 ```javascript
 var $paragrafos = $('p');
@@ -139,9 +133,9 @@ $('p').on('click', function(evt) {
 });
 ```
 
-Workflow
---------
-##### Enlaces
+Día 6: Martes 25/11/2014
+------------------------
+### Enlaces
 * [Git](http://git-scm.com/)
 * [SourceTree](http://www.sourcetreeapp.com/): GUI de Git.
 * [La parábola de git](https://www.youtube.com/watch?v=sXudMl5x_5g): Vídeo interesante.
@@ -152,7 +146,7 @@ Workflow
 * [Gulp](http://gulpjs.com/): Gestor de tareas. Equivalente a Grunt. Está de moda ahora.
 * [Bower](http://bower.io/): Gestor de librerías (como npm pero a nivel de librerías JS, tipo leaflet o bootstrap). Depende de git.
 
-##### Montaje de entorno
+### Montaje de entorno y workflow
 1. Instalamos git.
 2. Inicializamos el proyecto local:
   * `mkdir 06YesNoGit`
@@ -194,3 +188,30 @@ Workflow
 19. Aparece el directorio `dist` con la versión final (lista para desplegar) de nuestro proyecto.
 20. Arrancamos un servidor web para probar el proyecto:
   * `grunt serve`
+
+Día 7: Miércoles 26/11/2014
+---------------------------
+### Enlaces
+[Phonegap developer app](http://app.phonegap.com/): Sincroniza la app desplegada por Phonegap en el teléfono o en Genymotion para pasar los cambios directamente sin necesidad de volver a desplegar.
+
+### Bower
+La diferencia con npm es que éste instala cosas en máquina; Bower añade librerías al proyecto. Lo vamos a manejar con los siguientes comandos por terminal:
+* `bower search leaflet`: Busca las librerías que contienen “leaflet”.
+* `bower install --save leaflet`: Instala la librería leaflet. La opción `--save` hace que se apunte en un fichero de referencia de librerías (`bower.json`) para luego no tener que subir las librerías al control de versiones (evitaríamos subir el directorio `bower_components`, que es donde se almacenan las librerías instaladas y sus dependencias). Es parecido al `package.json` de npm.
+* `grunt wiredep`: Conecta las dependencias. Por ejemplo vincula los ficheros CSS de las librerías en la posición del comentario `<!-- bower:css -->` del fichero `index.html`. Los CSS de las librerías que había instaladas previamente (bootstrap y modernizr) se habían conectado cuando instalamos la plantilla webapp con yeoman. Esta tarea está incluida en la tarea `build`.
+* `bower uninstall --save leaflet`: Desinstala la librería leaflet.
+
+### Grunt
+El fichero de configuración tiene forma de script Javascript. Es el fichero `Gruntfile.js`.
+
+### git
+Vamos a hacer el merge de la feature que creamos ayer en la rama develop:
+1. SourceTree / Commit / Marcamos “Unstage all” para pasar a stage todos los ficheros modificados / Incluimos el comentario del commit en la caja de abajo.
+2. SourceTree / Gitflow / Finish Feature (marcamos Delete branch)
+3. SourceTree / Push (marcamos las dos ramas: develop y master)
+
+### Phonegap app developer
+1. Se instala en el emulador o dispositivo la aplicación.
+2. Se abre la aplicación “PhoneGap” en el dispositivo o emulador.
+3. Se configura poniendo la URL que aparece al arrancar el servidor phonegap en la máquina de desarrollo:
+  * `phonegap serve`
