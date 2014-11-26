@@ -64,10 +64,10 @@ En realidad la tarea `run` hace `build`.
 about:inspect
 
 ### REST WebServices
-Servidor mock ([mockable](http://www.mockable.io/)): demo0034470.mockable.io
-url: http://demo0034470.mockable.io/votaciones/38/yes
-type: POST
-dataType: json
+Servidor mock ([mockable](http://www.mockable.io/)): demo0034470.mockable.io\s\s
+url: http://demo0034470.mockable.io/votaciones/38/yes\s\s
+type: POST\s\s
+dataType: json\s\s
 Respuesta:
 ```json
 {
