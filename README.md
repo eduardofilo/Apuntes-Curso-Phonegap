@@ -160,7 +160,7 @@ Día 6: Martes 25/11/2014
 * [Bower](http://bower.io/): Gestor de librerías (como npm pero a nivel de librerías JS, tipo leaflet o bootstrap). Depende de git.
 
 ### Montaje de entorno y workflow
-1. Instalamos git.
+1. Bajamos el instalador de git y lo instalamos. Durante la instalación, en una página del asistente, marcamos la tercera opción que lleva una leyenda en rojo.
 2. Inicializamos el proyecto local:
   * `mkdir 06YesNoGit`
   * `cd 06YesNoGit`
