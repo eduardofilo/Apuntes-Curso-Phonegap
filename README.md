@@ -165,7 +165,7 @@ Día 6: Martes 25/11/2014
   * `mkdir 06YesNoGit`
   * `cd 06YesNoGit`
   * `git init`
-3. Creación de repositorio en GitHub.
+3. Entramos con nuestra cuenta (o creamos una) en GitHub y creamos un repositorio con el mismo nombre que el local (`06YesNoGit`).
 4. Creamos un “remote” desde el git local hacia GitHub:
   * `git remote add origin https://github.com/eduardofilo/06YesNoGit.git`
 5. Sincronizamos:
