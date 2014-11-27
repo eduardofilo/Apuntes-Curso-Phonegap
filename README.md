@@ -249,3 +249,9 @@ Siguiendo la [lección sobre CSS del curso de HTML5 de Javier](https://github.co
 
 *Unidades de medida*  
 `em` es una de las más interesantes. Procede del mundo de la tipografía y es la anchura de la M mayúscula en un tamaño que se considera legible con facilidad por un usuario normal. Las `em` se basan en el tamaño de letra del elemento y son relativas entre elementos que se contienen, es decir, si un elemento tiene `2em` pero está afectado por un contenedor en el que se aplica `2em`, el tamaño resultante será equivalente a `6em`. Para evitar la acumulación está la unidad `rem` (=root em).
+
+*Preferencias*  
+Hay un orden de prioridad entre los selectores de CSS. Algunos detalles:
+* Prioridades generales de menos a más: Reglas definidas por el navegador (useragent stylesheet rules) -> Reglas que seleccionan elementos -> Reglas que seleccionan atributos (`id` o `class`).
+* `id` prioriza sobre `class`.
+* `!important` se salta las prioridades, es decir se aplica siempre.
