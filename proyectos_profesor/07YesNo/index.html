@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votación</title>
+    <meta name="viewport" 
+          value="width: device-width; initial-scale : 1;">
+    <style>
+        #resultado {
+            display : none;
+        }
+    </style>
+</head>
+<body>
+<!--   h1{Votación}+main>(p{lorem10}+form)-->
+   <h1>Votación</h1>
+   <main>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, animi!</p>
+       <form action="">
+<!--           label[for=num]{Número de votación}+input[id=num name=num]-->
+           <label for="num">Número de votación</label>
+           <input type="text" id="num" name="num">
+           
+           <button name="cmdYes">Sí!</button>
+           <button name="cmdNo">no</button>           
+       </form>
+       <div id="resultado">
+           <ul>
+                <li>Total: <span id="total">0</span></li>               
+                <li>Sí: <span id="si">0</span></li>               
+                <li>No: <span id="no">0</span></li>               
+           </ul>
+       </div>
+       <script src="jquery-2.1.1.min.js"></script>
+       <script src="cordova.js"></script>
+       <script>
+           var URL = 'http://demo5661394.mockable.io/votaciones/{id}';
+           var voteYesSuccess = function(data) {
+               console.info('Yai!', data);
+               
+               $('form').fadeOut(function() {
+                  $('#total').text(data.votosTotales);
+                  $('#si').text(data.votosPositivos);
+                  $('#no').text(data.votosNegativos);
+                  $('#resultado').fadeIn();
+               });
+           };
+           
+           var voteYesError = function(err) {
+               console.error('Nooo!', err);
+           };
+           
+           var voteYes = function(evt) {
+               evt.preventDefault();
+               
+               var id = $('#num').val();
+               var url = URL.replace('{id}', id) + '/votos/yes';
+               
+               var promise = $.post(url);
+               promise.done(voteYesSuccess);
+               promise.fail(voteYesError);
+               
+               console.log('Has votado sí.');
+           };
+           
+           var inicializar = function() {
+               var cmdYes = document.querySelector('[name=cmdYes]');
+               cmdYes.addEventListener('click', voteYes);
+           };
+           
+           
+           document.addEventListener('deviceready', inicializar);
+       
+       </script>
+       
+   </main>
+   
+   
+   
+    
+</body>
+</html>

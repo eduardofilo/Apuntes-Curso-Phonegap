@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <title>Document</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <!--
+h1{Votación}+form>(label[for=num]{Número}+input[id=num name=num])
+-->
+    <h1>Votación</h1>
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Form Name</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Text Input</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+                    <span class="help-block">dale caña</span> 
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="button1id">YES</label>
+                <div class="col-md-8">
+                    <button id="button1id" name="button1id" class="btn btn-success">YES</button>
+                    <button id="NO" name="NO" class="btn btn-danger">Scary Button</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <script src="cordova.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
