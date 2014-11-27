@@ -247,5 +247,5 @@ Día 8: Jueves 27/11/2014
 ### CSS
 Siguiendo la [lección sobre CSS del curso de HTML5 de Javier](https://github.com/ciberado/javiermoreno-dominahtml5-intro/tree/master/05_css).
 
-*Unidades de medida*
+*Unidades de medida*  
 `em` es una de las más interesantes. Procede del mundo de la tipografía y es la anchura de la M mayúscula en un tamaño que se considera legible con facilidad por un usuario normal. Las `em` se basan en el tamaño de letra del elemento y son relativas entre elementos que se contienen, es decir, si un elemento tiene `2em` pero está afectado por un contenedor en el que se aplica `2em`, el tamaño resultante será equivalente a `6em`. Para evitar la acumulación está la unidad `rem` (=root em).
