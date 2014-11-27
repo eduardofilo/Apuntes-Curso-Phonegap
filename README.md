@@ -269,3 +269,48 @@ El `display` de un `div` por defecto (useragent stylesheet rules) es `block`. El
    …
    </section>
 ```
+
+*Float*  
+La propiedad `clear` sólo funciona si el `display` no es `inline`. Se usa mucho el apaño del clearfix para solucionar la pérdida de dimensión vertical de un contenedor cuando todo su contenido más alto flota. El selector `:after` selecciona después del contenido al que se aplica el estilo, no el contenido del siguiente elemento en el DOM. El clearfix favorito de Javier es:
+```css
+.clearfix:after {
+            content: ".";
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+```
+
+*viewport*  
+Diferencia entre layout-viewport y display-viewport. La relación entre ambos es el nivel de zoom. El layout-viewport predeterminado es 960px. Se definió pixel-ratio cuando apareció iPhone 4, inicialmente con un valor de 2 (pantalla retina de 640px de ancho por los 320px del iPhone original). Terminales con pantallas QuadHD tienen un pixel-ratio de alrededor de 4. Tiene el inconveniente de que hace que las imágenes se redimensionen, lo que en terminales con mucha densidad de pixel produce desenfoque. La solución es enviar la imagen adecuada a cada dispositivo. De momento se hace con condiciones en CSS.
+
+*mediaqueries*  
+Permite hacer condiciones en CSS. `@media` es un if. En las mediaqueries los `em` son siempre `rem` es decir son absolutos, no relativos. Más que hablar de resoluciones debemos pensar en tamaños. Se suelen considerar cuatro tamaños:
+* Móvil: 360 px CSS
+* Tablet: 768 px CSS
+* Desktop: 1300 px CSS
+* TV
+
+### Tipografía
+La tipografía cada vez tiene más importancia. Para pantalla, Javier no recomienda Helvetica. Existen muchos tipos buenos, muy legibles y gratuitos, como:
+* [Mozilla Fira](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/)
+* [Ubuntu](http://font.ubuntu.com/)
+* [Google OpenSans](http://www.google.com/fonts/specimen/Open+Sans)
+
+Javier recomienda no descartar las fuentes de pago. La inversión puede tener un impacto muy importante en el proyecto. Algunas foundries:
+* [Typekit](https://typekit.com/): Foundry de Adobe.
+* [Google Fonts](http://www.google.com/fonts): Foundry de Google.
+
+Nos describe el uso de [Google Fonts](http://www.google.com/fonts) usando el sitio para definir un paquete con dos fuentes.
+
+### Frameworks
+Algunos framewoks:
+* [Bootstrap](http://getbootstrap.com/): es el más importante ahora mismo. El favorito de Javier, sobre todo por su ecosistema.
+* [Bootsnipp](http://bootsnipp.com/): Componentes para bootstrap.
+* [Foundation](http://foundation.zurb.com/)
+* [Skeleton](http://getskeleton.com/)
+* [Ionic](http://ionicframework.com/): Perfecto para pantallas pequeñas.
+* [Ratchet](http://goratchet.com/): También para móviles.
+* [Sencha Touch](http://www.sencha.com/products/touch/): Para móviles. No recomendado por Javier.
+* [jQuery Mobile](http://jquerymobile.com/): No recomendado por Javier.
