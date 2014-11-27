@@ -255,3 +255,17 @@ Hay un orden de prioridad entre los selectores de CSS. Algunos detalles:
 * Prioridades generales de menos a más: Reglas definidas por el navegador (useragent stylesheet rules) -> Reglas que seleccionan elementos -> Reglas que seleccionan atributos (`id` o `class`).
 * `id` prioriza sobre `class`.
 * `!important` se salta las prioridades, es decir se aplica siempre.
+
+*Position*  
+`top` y `left` no aplican si `position` es `static`. El `position: absolute` toma el origen de coordenadas del primer contenedor que no es `static`.
+
+*Display*  
+El `display` de un `div` por defecto (useragent stylesheet rules) es `block`. El de `span` es `inline`. Se puede modificar tanto un caso como el otro. Por ejemplo si ponemos `display: inline` a un `div`, pasa a comportarse como un `span`. El `display: inline` hace que se ignore el `width`. Con `display: inline-block` sí que se tiene en cuenta el `width`. Hay un truco para conservar la indentación en el código HTML mientras se evita que se introduzca un carácter espacio que ocupa sitio y descoloca la maquetación y es introducir un comentario entre líneas de esta forma:
+```html
+   <section>
+   …
+   </section><!--
+--><section>
+   …
+   </section>
+```
