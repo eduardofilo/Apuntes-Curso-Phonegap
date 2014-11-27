@@ -231,3 +231,21 @@ Vamos a hacer el merge de la feature que creamos ayer en la rama develop:
 2. Se abre la aplicación “PhoneGap” en el dispositivo o emulador.
 3. Se configura poniendo la URL que aparece al arrancar el servidor phonegap en la máquina de desarrollo:
   * `phonegap serve`
+
+Día 8: Jueves 27/11/2014
+---------------------------
+### Enlaces
+* [Fundation](http://foundation.zurb.com/): Framework CSS basado en em. Bootstrap está basado en px.
+* [QuirksMode](http://www.quirksmode.org/about/): Peter Paul Koch. Buscar sus conferencias sobre display.
+* [Media Queries](http://mediaqueri.es/): Catálogo de sitios responsive.
+* [Swwweet](http://www.swwweet.com/): Estudio de Barcelona con buena filosofía web.
+* [CSS Zen garden](http://www.csszengarden.com/): Juego para modificar con CSS un HTML fijado desde hace años.
+* [Pedro Arilla](http://pedroarilla.com/es/): Especialista en tipografía de Zaragoza.
+* [Fontsinuse](http://fontsinuse.com/): Galería de sitios con tipografía interesante.
+* [Unos tipos duros](http://www.unostiposduros.com/): Teoría y práctica de la tipografía.
+
+### CSS
+Siguiendo la [lección sobre CSS del curso de HTML5 de Javier](https://github.com/ciberado/javiermoreno-dominahtml5-intro/tree/master/05_css).
+
+*Unidades de medida*
+`em` es una de las más interesantes. Procede del mundo de la tipografía y es la anchura de la M mayúscula en un tamaño que se considera legible con facilidad por un usuario normal. Las `em` se basan en el tamaño de letra del elemento y son relativas entre elementos que se contienen, es decir, si un elemento tiene `2em` pero está afectado por un contenedor en el que se aplica `2em`, el tamaño resultante será equivalente a `6em`. Para evitar la acumulación está la unidad `rem` (=root em).
