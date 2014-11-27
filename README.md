@@ -1,8 +1,6 @@
 Apuntes Curso Phonegap
 ======================
-Profesor
---------
-@ciberado
+Profesor: [@ciberado](https://github.com/ciberado)
 
 Días 1 a 5: 18/11/2014 -> 24/11/2014
 ------------------------------------
