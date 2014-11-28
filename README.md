@@ -289,7 +289,7 @@ Diferencia entre layout-viewport y display-viewport. La relación entre ambos es
 Permite hacer condiciones en CSS. `@media` es un if. En las mediaqueries los `em` son siempre `rem` es decir son absolutos, no relativos. Más que hablar de resoluciones debemos pensar en tamaños. Se suelen considerar cuatro tamaños:
 * Móvil: 360 px CSS
 * Tablet: 768 px CSS
-* Desktop: 1300 px CSS
+* Desktop: 1200 px CSS
 * TV
 
 ### Tipografía
