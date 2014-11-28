@@ -37,6 +37,7 @@ Días 1 a 5: 18/11/2014 -> 24/11/2014
 * [Transit](http://ricostacruz.com/jquery.transit/): Plugin jQuery para animaciones.
 * [Adobe Color CC](http://color.adobe.com): Ruedas cromáticas.
 * [Express](http://expressjs.com/): Fast, unopinionated, minimalist web framework for Node.js
+* [Heroku](https://www.heroku.com/): Cloud Application Platform con soporte a Node.js
 
 ### Instalación entorno
 Módulos necesarios:
