@@ -35,6 +35,7 @@ Días 1 a 5: 18/11/2014 -> 24/11/2014
 * [Jade](http://jade-lang.com/) y [HAML](http://haml.info/): Alternativas a HTML.
 * [JSFiddle](http://jsfiddle.net/): Prototipos HTML/CSS/JS.
 * [Transit](http://ricostacruz.com/jquery.transit/): Plugin jQuery para animaciones.
+* [Adobe Color CC](http://color.adobe.com): Ruedas cromáticas.
 
 ### Instalación entorno
 Módulos necesarios:
