@@ -1,0 +1,16 @@
+
+#logo {
+    float: right;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.paneles {
+    height: 100px;
+}
+
+#gplayimg {
+    float: right;
+}
