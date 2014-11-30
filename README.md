@@ -317,3 +317,39 @@ Algunos framewoks:
 * [Ratchet](http://goratchet.com/): También para móviles.
 * [Sencha Touch](http://www.sencha.com/products/touch/): Para móviles. No recomendado por Javier.
 * [jQuery Mobile](http://jquerymobile.com/): No recomendado por Javier.
+
+Día 9: Viernes 28/11/2014
+-------------------------
+### Enlaces
+* [UI Bootstrap](http://angular-ui.github.io/bootstrap/): Bootstrap adaptado a Angular.
+* [Bootsnipp](http://bootsnipp.com/): Galería de elementos para Bootstrap.
+* [Couchbase Mobile](http://www.couchbase.com/nosql-databases/couchbase-mobile): Plugin Phonegap para tener una base de datos noSQL local con opción de sincronizar con el servidor.
+
+### Bootstrap
+En [Customize](http://getbootstrap.com/customize/) se puede compilar una versión personalizada (sólo con los componentes que vayamos a utilizar, lo que además hace más pequeña la librería). Dentro de este Customize se pueden cambiar por ejemplo los Media queries breakpoints que son los que hacen que el diseño cambie entre los distintos tamaños de pantalla.
+Es recomendable instalarlo con Bower si se va a integrar en Phonegap (para tenerlo en local y minimizar la latencia que supondría el descargarlo).
+El menú superior del sitio de Bootstrap está bien estructurado en cuanto a la dificultad de menor a mayor de izquierda a derecha. Conviene leer por lo menos la sección [Getting Started](http://getbootstrap.com/getting-started/).
+Bootstrap utiliza CDN para minimizar la latencia.
+Si vamos a utilizar Angular, en lugar de poner bootstrap normal hay que integrar UI Bootstrap que no utiliza jQuery.
+Es importante meter en la cabecera lo siguiente (aparece en [Basic Template](http://getbootstrap.com/getting-started/#template)):
+```html
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+```
+Importante leer todo el [documento sobre CSS](http://getbootstrap.com/css/), sobre todo lo relativo al [Grid System](http://getbootstrap.com/css/#grid) y a los [Forms](http://getbootstrap.com/css/#forms).
+Los componentes que no encontremos en Bootstrap buscarlos en [Bootsnipp](http://bootsnipp.com/).
+Si utilizamos la parte de JS de Bootstrap hay que integrar jQuery.
+
+### Buenas prácticas con Bootstrap
+Interesa poner siempre un label en los campos de formulario por accesibilidad, pero en pantallas pequeñas se suele usar un placeholder, lo que es redundante. Para evitarlo se oculta añadiendo la clase `sr-only` (sr de Screen Reader), lo que mantiene el label en el código pero no lo muestra.
+
+### JavaScript
+Almacenamiento de un conjunto de variables en localStorage:
+```javascript
+var l1 = ["Alice", "Bob", "Charly"];
+var l2 = [1, 2, 3]
+var listas = { listaPrincipal: l1, listaSecundaria: l2};
+var listasComoCadena = JSON.stringify(listas);
+localStorage.setItem('listas', listasComoCadena);
+```
