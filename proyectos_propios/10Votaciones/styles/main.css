@@ -1,0 +1,12 @@
+.gap {
+    margin-top: 1em;
+}
+.sinborde {
+    border-top: 0px !important;
+}
+.pagina {
+    display: none;
+}
+.pagina-activa {
+    display: block;
+}
