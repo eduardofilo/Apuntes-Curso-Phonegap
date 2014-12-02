@@ -412,6 +412,7 @@ var promesa = $.post(url, {value: ‘yes’});
 ```
 
 En segundo lugar programamos la gestión de la navegación, es decir cómo cambia la aplicación de pantalla, ya sea hacia delante o hacia atrás (incluyendo por ejemplo el evento “Back” del dispositivo que equivale al botón “Atrás” del navegador). Javier nos comenta el truco de añadir anchors (#) a la URL. Con esto se consigue que no se recargue el documento y que sí afecte al historial. Como nuestra app es SPA nos viene muy bien este truco. En Phonegap, la tecla “Atrás” de los dispositivos equivale al Back del WebView. La gestión del historial la vamos a hacer con [history.js](https://github.com/browserstate/history.js/).
+
 1. Buscamos/instalamos history.js con Bower (`--save` actualiza el fichero `bower.json` con lo que hacemos que la inclusión de este componente sea persistente, es decir, si luego borramos los componentes, para no subirlos al control de versiones por ejemplo, lo podremos recuperar fácilmente):
   * bower search history
   * bower install --save history.js
