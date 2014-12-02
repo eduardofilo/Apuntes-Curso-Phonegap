@@ -246,6 +246,7 @@ Día 8: Jueves 27/11/2014
 * [Pedro Arilla](http://pedroarilla.com/es/): Especialista en tipografía de Zaragoza.
 * [Fontsinuse](http://fontsinuse.com/): Galería de sitios con tipografía interesante.
 * [Unos tipos duros](http://www.unostiposduros.com/): Teoría y práctica de la tipografía.
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/): 479 iconos vectorizados. Recomendado por Merche.
 
 ### CSS
 Siguiendo la [lección sobre CSS del curso de HTML5 de Javier](https://github.com/ciberado/javiermoreno-dominahtml5-intro/tree/master/05_css).
