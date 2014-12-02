@@ -19,11 +19,6 @@ var controlador = {
         var self = this; //Almacenamos el controlador en la closure
         var promesa = servicioPreguntas.obtenerPreguntaActual();
         promesa.done(function (pregunta) {
-            //self._$pregunta.text(pregunta.question);
-            //self._$pregunta.fadeOut(function () {
-            //    self._$pregunta.text(pregunta.question);
-            //    self._$pregunta.fadeIn();
-            //});
             self._actualizarPregunta(pregunta.question);
         });
     },
@@ -31,12 +26,16 @@ var controlador = {
     _actualizarPregunta: function (texto) {
         var self = this;
 
-        this._$pregunta
-            .fadeOut(function () {
-                self._$pregunta.text(texto);
-            }).fadeIn(function () {
-                self._mostrarPantalla(self._$pantallaVotacion);
-            });
+        //self._$pregunta.text(texto);
+        //self._$pregunta.fadeOut(function () {
+        //    self._$pregunta.text(texto);
+        //    self._$pregunta.fadeIn();
+        //});
+        this._$pregunta.fadeOut(function () {
+            self._$pregunta.text(texto);
+        }).fadeIn(function () {
+            self._mostrarPantalla(self._$pantallaVotacion);
+        });
     },
 
     _mostrarPantalla: function ($pantallaDestino) {
