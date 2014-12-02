@@ -398,3 +398,34 @@ Vamos a hacer una Single Page Application. Cada página “virtual” de la app 
 * Modifica la pantalla
 
 Todo lo que no tenga que ver con esto irá al modelo/servicio.
+
+Día 11: Martes 2/12/2014
+------------------------
+### Enlaces
+* [history.js](https://github.com/browserstate/history.js/)
+
+### Proyecto
+Vamos a programar el envío del voto al servidor (mockable) en un POST. El voto va en la URL por lo que aunque utilicemos https no ocultamos la información. Sería más correcto enviar el voto en el cuerpo del POST, por ejemplo:
+```javascript
+var url = this.URL_POST_NUEVO_VOTO.replace('{value}', tipoDeVoto);
+var promesa = $.post(url, {value: ‘yes’});
+```
+
+En segundo lugar programamos la gestión de la navegación, es decir cómo cambia la aplicación de pantalla, ya sea hacia delante o hacia atrás (incluyendo por ejemplo el evento “Back” del dispositivo que equivale al botón “Atrás” del navegador). Javier nos comenta el truco de añadir anchors (#) a la URL. Con esto se consigue que no se recargue el documento y que sí afecte al historial. Como nuestra app es SPA nos viene muy bien este truco. En Phonegap, la tecla “Atrás” de los dispositivos equivale al Back del WebView. La gestión del historial la vamos a hacer con [history.js](https://github.com/browserstate/history.js/).
+1. Buscamos/instalamos history.js con Bower (`--save` actualiza el fichero `bower.json` con lo que hacemos que la inclusión de este componente sea persistente, es decir, si luego borramos los componentes, para no subirlos al control de versiones por ejemplo, lo podremos recuperar fácilmente):
+  * bower search history
+  * bower install --save history.js
+2. Inyectamos dependencias (`grunt wiredep` no funciona => hay que mirar en la documentación). Elegimos la librería que nos conviene consultando la documentación. En `index.html` incluimos la referencia en el bloque `scripts/main.js` del `build.js` final:
+  * `<script src="bower_components/history.js/scripts/bundled/html4+html5/native.history.js"></script>`
+
+Con history.js manejamos el historial del navegador/webview por medio del objeto `History`. El objeto `history` sería la parte nativa del navegador. En muchas ocasiones se comportan igual.
+
+Los parámetros de la función `pushState` tanto de `history` como de `History` son:
+```javascript
+history.pushState({
+            id: idDestino
+        }, $('#' + idDestion).attr('data-title'), idDestion);
+```
+1. Objeto arbitrario en el que podemos almacenar datos
+2. Descripción o Título de esa entrada en el historial 
+3. Dirección/URL
