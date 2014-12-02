@@ -20,19 +20,34 @@ var controlador = {
     _$pantallaResultado: $('#resultado'),
     _$accionSi: $('#accionSi'),
     _$accionNo: $('#accionNo'),
+    _$accionVolver: $('#accionVolver'),
     //_$columnaTotales: $('#votosTotales'),
     //_$columnaPositivos: $('#votosPositivos'),
     //_$columnaNegativos: $('#votosNegativos'),
 
     inicializar: function () {
+        this._inicializarHistory();
         this._inicializarUI();
         this._visualizarPregunta();
+    },
+
+    _inicializarHistory: function () {
+        var self = this;
+        History.Adapter.bind(window, 'statechange', function () {
+            var estadoNuevo = History.getState();
+            //console.log(estadoNuevo);
+            var $pantallaDestino = $('#' + estadoNuevo.data.id);
+            self._mostrarPantalla($pantallaDestino);
+        });
     },
 
     _inicializarUI: function () {
         var self = this;
         this._$accionSi.click(function (evt) {
             self._ejecutarVotarSi();
+        });
+        this._$accionVolver.click(function (evt) {
+            self._ejecutarVolver();
         });
     },
 
@@ -45,15 +60,15 @@ var controlador = {
             // Actualizamos la tabla con los datos que nos devuelve el servicio
             self._prepararPantallaVotacion(datos.total, datos.positives, datos.negatives);
             // Mostramos la pantalla de resultados
-            self._mostrarPantalla(self._$pantallaResultado);
+            self.navegar('resultado');
         });
     },
 
+    _ejecutarVolver: function () {
+        this.navegar('votacion');
+    },
+
     _prepararPantallaVotacion: function (total, positivos, negativos) {
-        //var self = this;
-        //self._$columnaTotales.text(total);
-        //self._$columnaPositivos.text(positivos);
-        //self._$columnaNegativos.text(negativos);
         this._$pantallaResultado.find('#votosTotales').text(total);
         this._$pantallaResultado.find('#votosPositivos').text(positivos);
         this._$pantallaResultado.find('#votosNegativos').text(negativos);
@@ -70,16 +85,18 @@ var controlador = {
     _actualizarPregunta: function (texto) {
         var self = this;
 
-        //self._$pregunta.text(texto);
-        //self._$pregunta.fadeOut(function () {
-        //    self._$pregunta.text(texto);
-        //    self._$pregunta.fadeIn();
-        //});
         this._$pregunta.fadeOut(function () {
             self._$pregunta.text(texto);
         }).fadeIn(function () {
-            self._mostrarPantalla(self._$pantallaVotacion);
+            self.navegar('votacion');
         });
+    },
+
+    navegar: function (idDestino) {
+        //document.location.href = '#' + idDestino;
+        History.pushState({
+            id: idDestino
+        }, $('#' + idDestino).attr('data-title'), idDestino);
     },
 
     _mostrarPantalla: function ($pantallaDestino) {
