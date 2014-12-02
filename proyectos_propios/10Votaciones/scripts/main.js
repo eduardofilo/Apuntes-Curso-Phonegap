@@ -16,7 +16,7 @@ var controlador = {
     },
 
     _visualizarPregunta: function () {
-        var self = this; //Almacenamos el controlador en la closure
+        var self = this; //Almacenamos el controlador en la closure en que se convierte el callback definido al final
         var promesa = servicioPreguntas.obtenerPreguntaActual();
         promesa.done(function (pregunta) {
             self._actualizarPregunta(pregunta.question);
