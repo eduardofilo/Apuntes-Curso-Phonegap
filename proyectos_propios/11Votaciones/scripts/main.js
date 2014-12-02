@@ -47,7 +47,9 @@ var controlador = {
             self._ejecutarVotarSi();
         });
         this._$accionVolver.click(function (evt) {
-            self._ejecutarVolver();
+            //self.navegar('votacion');
+            evt.preventDefault();
+            history.back();
         });
     },
 
@@ -62,10 +64,6 @@ var controlador = {
             // Mostramos la pantalla de resultados
             self.navegar('resultado');
         });
-    },
-
-    _ejecutarVolver: function () {
-        this.navegar('votacion');
     },
 
     _prepararPantallaVotacion: function (total, positivos, negativos) {
