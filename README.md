@@ -353,3 +353,47 @@ var listas = { listaPrincipal: l1, listaSecundaria: l2};
 var listasComoCadena = JSON.stringify(listas);
 localStorage.setItem('listas', listasComoCadena);
 ```
+
+### Deberes para el fin de semana
+* Landing page con tres zonas y call for action superior (= jumbotron).
+  * Qué hacemos
+  * Por qué somos buenos
+  * Pasta
+* Repasar [Closures de JS](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Closures).
+
+
+Día 10: Lunes 1/12/2014
+-----------------------
+### Enlaces
+* [famo.us](http://famo.us/): Free, open source JavaScript framework that helps you create smooth, complex UIs for any screen.
+* [EggHead](https://egghead.io/): Screencasts.
+
+### Proyecto
+Vamos a montar el proyecto poniéndolo todo junto desde cero:
+
+1. Creamos el proyecto dentro del directorio \curso:
+  * `cd \curso`
+  * `phonegap create 10Votaciones --name Votaciones --id es.eduardofilo.yesno`
+2. Nos metemos en el directorio y lanzamos Yeoman para instalar la plantilla web:
+  * `cd 10Votaciones`
+  * `yo`
+3. Durante la configuración de Yeoman indicamos que incluya Bootstrap.
+4. Configuramos en Gruntile.js (línea 21 del fichero que la carpeta de la aplicación es `www` en lugar de `app` que es la que viene por defecto.
+5. Movemos carpeta `10Votaciones\www\res` a `10Votaciones\res`, es decir un nivel hacia arriba. Esta carpeta contiene los recursos que utilizará Phonegap (por ejemplo el icono de escritorio que ajustará en las distintas plataformas). No tiene mucho sentido que esté dentro de `www` ya que Phonegap duplicará hacia el directorio `dist` los recursos correspondientes a la plataforma con la que estemos trabajando. Si está en `www` es porque cuando utilizamos el servidor de compilación de Adobe para montar las aplicaciones nativas, sólo pasamos el directorio `www` y el que contenga `res` es una forma de enviar todo de una vez.
+6. Configuramos en `config.xml` el movimiento del directorio `res` que acabamos de hacer. Para ello sustituimos las rutas de los recursos, es decir `www/res` por `res`.
+7. Borramos el contenido de `www` y lo sustituimos por el de `app`.
+8. Borramos la carpeta `app` que ha quedado vacía.
+9. Movemos la carpeta `bower_components` al interior de `www`.
+10. Cambiamos la configuración de Bower en el fichero `.bowerrc` poniendo `www/bower_components` donde sólo ponía `bower_components`.
+11. Finalmente lanzamos la tarea que inyectará las dependencias entre los ficheros de código:
+  * `grunt wiredep`
+
+Con esto ya tendríamos la base.
+
+Vamos a utilizar el patrón MVC. Pondremos tanto el modelo como el controlador en el mismo fichero `main.js`, aunque sería más correcto separarlo.
+
+Vamos a hacer una Single Page Application. Cada página “virtual” de la app lo vamos a codificar mediante un `div` de clase `pagina`. Ese div tendrá un atributo personalizado “data-title” que contendrá el título de la página. El controlador sólo va a hacer:
+* Reacciona a la pantalla
+* Modifica la pantalla
+
+Todo lo que no tenga que ver con esto irá al modelo/servicio.
