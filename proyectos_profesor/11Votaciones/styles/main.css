@@ -1,0 +1,19 @@
+.jumbotron {
+    text-align: center;
+}
+
+.separacion {
+     margin-top : 24px;   
+}
+
+.sinlinea {
+     border-top : none !important;   
+}
+
+.pantalla {
+    display : none;
+}
+
+.pantalla.activa {
+     display : block;   
+}
