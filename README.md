@@ -451,7 +451,7 @@ Día 12: Miércoles 3/12/2014
 ### Proyecto
 `document` recibe todos los eventos. Implementamos un cartel “Cargando…” que aparece/desaparece cuando hay peticiones AJAX mientras se espera la respuesta del servidor. Se gestiona mediante los eventos `ajaxStart` y `ajaxStop`.
 
-Instalamos [jQuery-Color](https://github.com/jquery/jquery-color/) para hacer un efecto de transición al jumbotron:
+Instalamos [jQuery-Color](https://github.com/jquery/jquery-color/) para hacer un efecto de transición al jumbotron:  
 1. Buscamos/instalamos:
   1. `bower search jquery-color`
   2. `bower install --save jquery-color`
