@@ -430,3 +430,67 @@ history.pushState({
 1. Objeto arbitrario en el que podemos almacenar datos
 2. Descripción o Título de esa entrada en el historial 
 3. Dirección/URL
+
+
+Día 12: Miércoles 3/12/2014
+---------------------------
+### Enlaces
+* [Using Location Hash To Enable BACK/FORWARD Navigation](https://developers.google.com/tv/web/articles/location-hash-navigation)
+* [Web Fundamentals](https://developers.google.com/web/fundamentals/): Cómo adaptar experiencias web a dispositivos de distintos tamaños.
+* [seen.js](http://seenjs.io/): Render 3D scenes into SVG or HTML5 Canvas.
+* [jQuery-Color](https://github.com/jquery/jquery-color/): Animaciones con colores.
+* [Removing the 300ms tap delay in Chrome 32](https://www.youtube.com/watch?v=AjUpiwvIa5A): Se hace con la librería [fastclick](https://github.com/ftlabs/fastclick).
+* [QuoJS](http://quojs.tapquo.com/): Librería de gestures.
+* [HammerJS](http://hammerjs.github.io/): Librería de gestures.
+* [TouchSwipe-Jquery-Plugin](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin): Librería de swipes.
+* [iScroll](http://cubiq.org/iscroll-5): Librería para gestionar listas y los eventos físicos de arrastre.
+* [CancelBubble](https://twitter.com/cancelBubble): Cuenta de Twitter que comenta muchas librerías buenas.
+* [r/javascript](http://www.reddit.com/r/javascript): Subreddit de Javascript en el que comentan también librerías.
+* [Q](http://documentup.com/kriskowal/q/): Librería js para la gestión de promesas.
+
+### Proyecto
+`document` recibe todos los eventos. Implementamos un cartel “Cargando…” que aparece/desaparece cuando hay peticiones AJAX mientras se espera la respuesta del servidor. Se gestiona mediante los eventos `ajaxStart` y `ajaxStop`.
+
+Instalamos [jQuery-Color](https://github.com/jquery/jquery-color/) para hacer un efecto de transición al jumbotron:
+1. Buscamos/instalamos:
+  1. `bower search jquery-color`
+  2. `bower install --save jquery-color`
+2. Inyectamos la librería a mano al final del index.html ya que Bower no puede:
+  1. `<script src="bower_components/jquery-color/jquery.color.js"></script>`
+
+Hasta ahora había algo mal en el proyecto. No esperábamos a que cargara el DOM ni jQuery. Para conseguirlo envolvemos la función de inicialización de la siguiente forma:
+```javascript
+$(document).ready(function () {
+    controlador.inicializar();
+});
+```
+
+Vemos una forma de [desactivar](http://stackoverflow.com/questions/12665511/eliminate-tap-highlight-in-windows-phone-7) el highlight en el tap que hace el sistema operativo en WindowsPhone. Se consigue añadiendo la siguiente etiqueta `meta` en el `head` del HTML:
+```html
+<meta name="msapplication-tap-highlight" content="no"/>
+```
+
+Vamos a programar un gesto para volver a la pantalla de votaciones desde resultados.  
+Instalamos [TouchSwipe-Jquery-Plugin](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin):
+1. Buscamos/instalamos:
+  1. `bower search touchswipe`
+  2. `bower install --save jquery-touchswipe`
+
+Sustituimos el servicio votar para que guarde en local. Hay que generar promesa. Se puede hacer con la librería [Q](http://documentup.com/kriskowal/q/) o con [jQuery](http://api.jquery.com/category/deferred-object/). Lo hacemos así:
+```javascript
+var servicioPreguntas = {
+    //...
+
+    votar: function (tipoDeVoto) {
+        localStorage.setItem('voto', tipoDeVoto);
+        var deferred = $.Deferred();
+        var promesa = deferred.promise();
+        deferred.resolve({
+            total: 0,
+            positives: 0,
+            negatives: 0
+        });
+        return promesa;
+    }
+};
+```
