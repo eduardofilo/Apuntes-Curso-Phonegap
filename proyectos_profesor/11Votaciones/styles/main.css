@@ -1,0 +1,15 @@
+.separada {
+    margin-top : 1em;
+}
+
+.sinborde {
+    border : none !important;
+}
+
+.pagina {
+    display : none;
+}
+
+.pagina.activa {
+    display : block;    
+}
