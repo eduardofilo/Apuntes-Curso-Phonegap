@@ -496,3 +496,110 @@ var servicioPreguntas = {
     }
 };
 ```
+
+Día 13: Jueves 4/12/2014
+------------------------
+### Enlaces
+* [Documentación Phonegap Command Line](http://docs.phonegap.com/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface)
+* [Documentación Phonegap Plugins API](http://docs.phonegap.com/en/4.0.0/cordova_plugins_pluginapis.md.html#Plugin%20APIs)
+* [Repositorio de Cordova Plugins](http://plugins.cordova.io/)
+* [La estafa de la linterna molona que ilumina más en Android](http://www.elladodelmal.com/2014/01/la-estafa-de-la-linterna-molona-que.html)
+* [InfoTelefonoPlugin](https://github.com/ciberado/domina-phonegap-infotelefonoplugin): Plugin de Javier para obtener datos de identificación del teléfono.
+
+### Proyecto Plugins
+Vamos a hacer una pequeña aplicación para consultar la geolocalización:
+
+1. Creamos el proyecto:
+  1. `cd \curso`
+  2. `phonegap create 13GeoDemo --name GeoDemo --id es.eduardofilo.geodemo`
+2. Añadimos el plugin de geolocalización:
+  1. `cd 13GeoDemo`
+  2. `phonegap plugin add org.apache.cordova.geolocation`
+
+Buscar el código nativo para Android en [git](https://git-wip-us.apache.org/repos/asf?p=cordova-plugin-geolocation.git;a=tree;f=src/android;h=d2223b59460ffc4e37333908e5ff0daec1ca1951;hb=7393e84b319fe3dd65d047f23b1051b1067e6b3b).
+
+Javier no recomienda getCurrentPosition porque da timeout rápidamente si estás en HighAccuracy. Mejor con watchPosition.
+
+Vamos a ver cómo se crearía un plugin. Para ello instalamos un plugin hecho por Javier y estudiamos detenidamente su sencillo código:
+
+1. Creamos el proyecto:
+  1. `cd \curso`
+  2. `phonegap create 13.1DatosTelefono --name DatosTelefono --id es.eduardofilo.datostfn`
+2. Añadimos el [plugin de Javier](https://github.com/ciberado/domina-phonegap-infotelefonoplugin):
+  1. `cd 13.1DatosTelefono`
+  2. `phonegap plugin add https://github.com/ciberado/domina-phonegap-infotelefonoplugin.git`
+
+Día 14: Viernes 5/12/2014
+-------------------------
+### Enlaces
+* [Cordova Device Motion Plugin](http://plugins.cordova.io/#/package/org.apache.cordova.device-motion)
+* [MakeAppIcon](http://makeappicon.com/)
+* [Web2Splash](https://github.com/mwbrooks/web2splash)
+* [Pastebin de Javier](http://pastebin.com/u/javi)
+* [Adobe PhoneGap Build](https://build.phonegap.com/)
+* [c9](https://c9.io/): IDE web.
+
+### Proyecto Plugins
+Continuamos con el proyecto de ayer:
+
+3. Comprobamos la instalación:
+  1. `phonegap plugin list`
+
+### Proyecto Acelerómetro
+Vamos a hacer un pequeño proyecto que controlará un pequeño cuadrado por pantalla con los acelerómetros del teléfono. En el proyecto haremos uso del [plugin oficial de Phonegap](http://plugins.cordova.io/#/package/org.apache.cordova.device-motion) que se encarga de acceder al dispositivo.
+
+1. Creamos el proyecto:
+  1. `phonegap create 14DemoAcelerometro --name DemoAcelerometro --id es.eduardofilo.demoaccel`
+2. Instalamos plugin:
+  1. `phonegap plugin add org.apache.cordova.device-motion`
+
+Por defecto `watchAcceleration` llama al callback cada 10 segundos:
+```javascript
+var watchID = navigator.accelerometer.watchAcceleration(
+      accelerometerSuccess,
+      accelerometerError,
+      accelerometerOptions);
+```
+
+* **accelerometerOptions**: An object with the following optional keys:
+  * **period**: requested period of calls to accelerometerSuccess with acceleration data in Milliseconds.(Number) (Default: 10000)
+
+Para conseguir que la aplicación sea más "responsiva", se puede cambiar el periodo de consulta pasando un objeto con un parámetro de clave frecuency en su interior (aunque la documentación menciona `period`, es `frecuency`). Hubiera funcionado cada segundo por ejemplo llamando al watchAcceleration así:
+```javascript
+var options = { frequency: 1000 };
+var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+```
+
+### Subir a Google Play
+Para generar un certificado con que firmar las aplicaciones:
+```bash
+keytool -genkey -alias demoiconos -keyalg RSA -validity 20000 -keystore demoiconos.keystore
+```
+
+### Compilar en Adobe PhoneGap Build
+Para delegar la construcción del proyecto en el [servicio de compilación de Adobe en la nube](https://build.phonegap.com/):
+```bash
+phonegap remote build android
+```
+Se puede firmar la aplicación desde Adobe subiendo el fichero keystore que hemos creado antes.
+
+### Inicialización del controlador
+Si usamos jQuery:
+```javascript
+$(document).ready(function () {
+    document.addEventListener('deviceready', function () {
+        controlador.inicializar();
+    });
+});
+```
+
+Si no usamos jQuery:
+```javascript
+document.addEventListener('deviceready', function () {
+    controlador.inicializar();
+});
+```
+
+### Pendiente de preguntar:
+* [JSONP vs CORS](http://stackoverflow.com/questions/12296910/so-jsonp-or-cors)
+* Workspaces en Chrome.
